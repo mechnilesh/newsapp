@@ -44,52 +44,73 @@ class _NewsDetailScrennState extends State<NewsDetailScrenn> {
             alignment: Alignment.bottomLeft,
             child: Padding(
               padding: const EdgeInsets.all(24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Spider-man: ore: all 23 Marvel movies, ranked",
-                    style: TextStyle(
-                      color: headingFontColor,
-                      fontSize: 29,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
                     ),
-                  ),
-                  SizedBox(
-                    height: 64,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Vox.com",
-                        style: TextStyle(
-                          color: subHeadingFontColor,
-                          fontSize: 20,
+                    CircleAvatar(
+                      radius: 25,
+                      backgroundColor: Colors.black54,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: whiteColor,
                         ),
                       ),
-                      Text(
-                        "2019-07-03",
-                        style: TextStyle(
-                          color: subHeadingFontColor,
-                          fontSize: 20,
-                          // fontWeight: FontWeight.w100,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    "This is considered an error condition because it indicates that there is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView.",
-                    style: TextStyle(
-                      color: subHeadingFontColor,
-                      fontSize: 14,
-                      // fontWeight: FontWeight.w100,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.4,
+                    ),
+                    Text(
+                      "Spider-man: ore: all 23 Marvel movies, ranked",
+                      style: TextStyle(
+                        color: headingFontColor,
+                        fontSize: 29,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 64,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Vox.com",
+                          style: TextStyle(
+                            color: subHeadingFontColor,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          "2019-07-03",
+                          style: TextStyle(
+                            color: subHeadingFontColor,
+                            fontSize: 20,
+                            // fontWeight: FontWeight.w100,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      "This is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView. This is considered an error condition because it indicates that there is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView. This is considered an error condition because it indicates that there is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView. This is considered an error condition because it indicates that there is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView.",
+                      style: TextStyle(
+                        color: subHeadingFontColor,
+                        fontSize: 14,
+                        overflow: TextOverflow.clip,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
