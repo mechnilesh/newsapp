@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:newsapp/resources/utils/routes/routes.dart';
+import 'package:newsapp/resources/utils/routes/routes_name.dart';
 import 'package:newsapp/views/home_screen.dart';
 
 void main() async {
@@ -23,7 +25,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'RobotoSlab',
       ),
-      home: HomeScreen(),
+      initialRoute: RoutesName.homeScreen,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }

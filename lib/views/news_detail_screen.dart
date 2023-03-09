@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-import '../utils/constants/colors.dart';
+import '../resources/constants/colors.dart';
 
 class NewsDetailScrenn extends StatefulWidget {
   const NewsDetailScrenn({super.key});

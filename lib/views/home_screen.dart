@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/utils/constants/colors.dart';
+import 'package:newsapp/resources/constants/colors.dart';
+import 'package:newsapp/resources/utils/routes/routes_name.dart';
 import 'package:newsapp/views/news_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,12 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.only(top: 24.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    CupertinoPageRoute(
-                      builder: (ctx) => NewsDetailScrenn(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, RoutesName.newsDetailSreen);
                 },
                 child: Container(
                   height: 200,
