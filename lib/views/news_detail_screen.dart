@@ -59,7 +59,7 @@ class _NewsDetailScrennState extends State<NewsDetailScrenn> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back,
                           color: whiteColor,
                         ),
