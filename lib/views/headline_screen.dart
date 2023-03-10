@@ -6,14 +6,14 @@ import 'package:newsapp/views/news_detail_screen.dart';
 
 import '../resources/widgets/NewsCardWidget.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HeadlineScreen extends StatefulWidget {
+  const HeadlineScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HeadlineScreen> createState() => _HeadlineScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HeadlineScreenState extends State<HeadlineScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

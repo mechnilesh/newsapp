@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/resources/utils/routes/routes_name.dart';
-import 'package:newsapp/views/home_screen.dart';
+import 'package:newsapp/views/headline_screen.dart';
 import 'package:newsapp/views/news_detail_screen.dart';
 
 class Routes {
@@ -10,7 +10,7 @@ class Routes {
       //home screen
       case RoutesName.homeScreen:
         return CupertinoPageRoute(
-          builder: (BuildContext context) => const HomeScreen(),
+          builder: (BuildContext context) => const HeadlineScreen(),
         );
 
       //news detail screen
