@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../resources/constants/colors.dart';
+import '../view_models/news_view_model.dart';
 
 class NewsDetailScrenn extends StatefulWidget {
-  const NewsDetailScrenn({super.key});
-
+  const NewsDetailScrenn({
+    super.key,
+    required this.index,
+  });
+  final int index;
   @override
   State<NewsDetailScrenn> createState() => _NewsDetailScrennState();
 }
@@ -20,7 +25,11 @@ class _NewsDetailScrennState extends State<NewsDetailScrenn> {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: NetworkImage(
-              "https://www.pakainfo.com/wp-content/uploads/2021/09/image-url-for-testing.jpg",
+              context
+                  .watch<NewsViewModel>()
+                  .newsArticles![widget.index]
+                  .urlToImage
+                  .toString(),
             ),
           ),
           borderRadius: BorderRadius.circular(10),
@@ -69,7 +78,11 @@ class _NewsDetailScrennState extends State<NewsDetailScrenn> {
                       height: MediaQuery.of(context).size.height * 0.4,
                     ),
                     Text(
-                      "Spider-man: ore: all 23 Marvel movies, ranked",
+                      context
+                          .watch<NewsViewModel>()
+                          .newsArticles![widget.index]
+                          .title
+                          .toString(),
                       style: TextStyle(
                         color: headingFontColor,
                         fontSize: 29,
@@ -81,15 +94,27 @@ class _NewsDetailScrennState extends State<NewsDetailScrenn> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Vox.com",
-                          style: TextStyle(
-                            color: subHeadingFontColor,
-                            fontSize: 20,
+                        Expanded(
+                          child: Text(
+                            context
+                                .watch<NewsViewModel>()
+                                .newsArticles![widget.index]
+                                .author
+                                .toString(),
+                            style: TextStyle(
+                              color: subHeadingFontColor,
+                              fontSize: 20,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ),
                         Text(
-                          "2019-07-03",
+                          context
+                              .watch<NewsViewModel>()
+                              .newsArticles![widget.index]
+                              .publishedAt
+                              .toString()
+                              .substring(1, 10),
                           style: TextStyle(
                             color: subHeadingFontColor,
                             fontSize: 20,
@@ -102,7 +127,11 @@ class _NewsDetailScrennState extends State<NewsDetailScrenn> {
                       height: 16,
                     ),
                     Text(
-                      "This is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legThis is cothere is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView. This is considered an error condition because it indicates that there is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView. This is considered an error condition because it indicates that there is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView. This is considered an error condition because it indicates that there is content that cannot be seen. If the content is legitimately bigger than the available space, consider clipping it with a ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex, like a ListView.",
+                      context
+                          .watch<NewsViewModel>()
+                          .newsArticles![widget.index]
+                          .description
+                          .toString(),
                       style: TextStyle(
                         color: subHeadingFontColor,
                         fontSize: 14,

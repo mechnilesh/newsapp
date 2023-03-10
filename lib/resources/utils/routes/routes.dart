@@ -10,13 +10,15 @@ class Routes {
       //home screen
       case RoutesName.homeScreen:
         return CupertinoPageRoute(
-          builder: (BuildContext context) => const HeadlineScreen(),
+          builder: (BuildContext context) => HeadlineScreen(),
         );
 
       //news detail screen
       case RoutesName.newsDetailSreen:
         return CupertinoPageRoute(
-          builder: (BuildContext context) => const NewsDetailScrenn(),
+          builder: (BuildContext context) => NewsDetailScrenn(
+            index: settings.arguments as int,
+          ),
         );
 
       default:

@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
@@ -5,11 +6,19 @@ import '../utils/routes/routes_name.dart';
 
 class NewsCardWidget extends StatelessWidget {
   const NewsCardWidget({
-    super.key,
+    Key? key,
     required this.imageUrl,
-  });
+    required this.heading,
+    required this.publisher,
+    required this.date,
+    required this.index,
+  }) : super(key: key);
 
   final String imageUrl;
+  final String heading;
+  final String publisher;
+  final String date;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +26,11 @@ class NewsCardWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 24.0),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, RoutesName.newsDetailSreen);
+          Navigator.pushNamed(
+            context,
+            RoutesName.newsDetailSreen,
+            arguments: index,
+          );
         },
         child: Container(
           height: 200,
@@ -55,7 +68,7 @@ class NewsCardWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      "Spider-man: ore: all 23 Marvel movies, ranked",
+                      heading.toString(),
                       style: TextStyle(
                         color: headingFontColor,
                         fontSize: 20,
@@ -66,15 +79,18 @@ class NewsCardWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(
-                          "Vox.com    ",
-                          style: TextStyle(
-                            color: headingFontColor,
-                            fontSize: 12,
+                        Expanded(
+                          child: Text(
+                            "$publisher    ",
+                            style: TextStyle(
+                              color: headingFontColor,
+                              fontSize: 12,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ),
                         Text(
-                          "2019-07-03",
+                          date,
                           style: TextStyle(
                             color: headingFontColor,
                             fontSize: 12,
