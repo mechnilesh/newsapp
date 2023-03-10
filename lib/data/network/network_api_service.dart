@@ -1,22 +1,20 @@
 import 'dart:io';
 import 'dart:convert';
-import 'package:dio/dio.dart';
 import '../app_exceptions.dart';
 import 'base_api_services.dart';
+import 'package:http/http.dart' as http;
 
 class NetworkApiService extends BaseApiServices {
-  final dio = Dio();
-
   //---get api response----//
 
   @override
   Future getGetApiResponse(String url) async {
     dynamic responseJson;
     try {
-      final response = await dio.get(url).timeout(
+      final response = await http.get(Uri.parse(url)).timeout(
             const Duration(seconds: 60),
           );
-
+      // print(response.data);
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException("No Internet");
@@ -25,7 +23,7 @@ class NetworkApiService extends BaseApiServices {
     return responseJson;
   }
 
-  dynamic returnResponse(response) {
+  dynamic returnResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
         dynamic responseJson = jsonDecode(response.body);
