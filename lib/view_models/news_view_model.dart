@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/repository/news_repo.dart';
 import '../models/news_headline_reponse_model.dart';
+import '../resources/utils/utils.dart';
 
 class NewsViewModel with ChangeNotifier {
   final NewsRepository _newsRepository = NewsRepository();
@@ -19,17 +20,19 @@ class NewsViewModel with ChangeNotifier {
 
       isLoading = false;
       notifyListeners();
-      
+
       if (newsHeadLineResponseModel.status == "ok") {
         newsArticles = newsHeadLineResponseModel.articles;
 
         notifyListeners();
       } else {
-        // Utils.showSnackBar(context, updatePasswordModel.message, Colors.red);
+        Utils.showSnackBar(
+            context, newsHeadLineResponseModel.status.toString(), Colors.red);
       }
     }).onError((error, stackTrace) async {
+      
       throw {
-        // await Utils.showSnackBar(context, '$error', red),
+        await Utils.showSnackBar(context, '$error', Colors.red),
       };
     });
   }

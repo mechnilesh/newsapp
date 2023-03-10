@@ -12,7 +12,7 @@ class NetworkApiService extends BaseApiServices {
     dynamic responseJson;
     try {
       final response = await http.get(Uri.parse(url)).timeout(
-            const Duration(seconds: 60),
+            const Duration(seconds: 30),
           );
       // print(response.data);
       responseJson = returnResponse(response);
@@ -38,7 +38,7 @@ class NetworkApiService extends BaseApiServices {
         );
       default:
         throw FetchDataException(
-          "Error occured while communicating with server with status code${response.statusCode}",
+          "Error occured while communicating with server with status code ${response.statusCode}",
         );
     }
   }
